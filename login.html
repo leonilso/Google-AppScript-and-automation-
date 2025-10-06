@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <script>
+      window.onload = function() {
+        var hash = window.location.hash;
+        var search = window.location.search;
+
+        // Caso a central volte com erro
+        if (search.includes("error")) {
+          document.body.innerHTML = "<p>Você precisa se autenticar.</p><a href='<?= authUrl ?>'>Clique aqui para entrar</a>";
+          return;
+        }
+
+        if (hash && hash.includes("access_token")) {
+          var params = new URLSearchParams(hash.substring(1));
+          var token = params.get("access_token");
+
+          if (token) {
+            google.script.run.withSuccessHandler(function(resposta) {
+              document.body.innerHTML = "<h3>" + resposta + "</h3>";
+            }).salvarToken(token);
+            return;
+          }
+        }
+
+        // Se não houver token nem erro → mostra botão
+        document.body.innerHTML = "<a href='<?= authUrl ?>'>Clique aqui para autenticar</a>";
+      }
+    </script>
+  </head>
+  <body>
+    <p>Carregando...</p>
+  </body>
+</html>
