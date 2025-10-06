@@ -21,14 +21,14 @@ O objetivo é poupar tempo de professores ou gestores que queiram automatizar fl
 | Arquivo / Pasta       | Descrição |
 |------------------------|-----------|
 | `enviarAviso.js`       | Script responsável pelo envio de avisos para turmas no Google Classroom |
-| `editarAviso.js`       | Script para editar avisos previamente enviados |
-| `uploadVideo.js`       | Envio de vídeos para o YouTube / Drive ou integração relacionada |
-| `turma.js`             | Manipulação / consulta de turmas no Classroom |
-| `separarTurmas.js`     | Lógica para segmentação ou agrupamento de turmas |
-| `pagina.js`            | Página de front-end / interface (HTML / client-side) |
-| `login.html`           | Página de login / autorização (OAuth) |
+| `editarAviso.js`       | Script para editar avisos com o link do youtube  |
+| `uploadVideo.js`       | Envio de vídeos para o YouTube  |
+| `turma.js`             | consulta de turmas no Classroom |
+| `separarTurmas.js`     | Lógica para segmentação de turmas com base em csv |
+| `pagina.js`            | Página de front-end / interface (não implementado ainda) |
+| `login.html`           | Página de login / autorização (não implementado ainda)  |
 | `IA.js`                | Integrações ou funções relacionadas à API Gemini / inteligência artificial |
-| `teste.js`             | Scripts de teste / prototipagem |
+| `teste.js`             | Scripts de teste |
 | `appsscript.json`      | Configurações de projeto Apps Script |
 | `.clasp.json`          | Configurações do CLASP (ferramenta para deploy local de Apps Script) |
 
