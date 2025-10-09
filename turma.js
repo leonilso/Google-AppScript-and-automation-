@@ -2,9 +2,9 @@ function verificarFaltantes(e) {
   const id = e.triggerUid;
   Logger.log(id)
   const turmaEscolhida = PropertiesService.getScriptProperties().getProperty(`turma_${id}`);
-  Logger.log(turmaEscolhida);
+  PropertiesService.getScriptProperties().deleteProperty(`turma_${id}`);
   if (!turmaEscolhida) return;
-  // const turmaEscolhida = 'AG'
+  // const turmaEscolhida = 'I'
 
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const informacoes = ss.getSheetByName("informacoes");

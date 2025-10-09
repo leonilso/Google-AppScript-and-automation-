@@ -173,7 +173,7 @@ function uploadChunks() {
   });
 
   // Limpar propriedades e triggers
-  scriptProperties.deleteAllProperties();
+  deletarPropriedades()
   deleteTriggers();
   } else if (statusCode === 308) {
     // Continua upload
@@ -186,7 +186,7 @@ function uploadChunks() {
   } else {
     Logger.log("Erro no upload: " + res.getContentText());
     // Opcional: deletar propriedades e triggers para reiniciar depois
-    scriptProperties.deleteAllProperties();
+    deletarPropriedades();
     deleteTriggers();
   }
 }
@@ -199,3 +199,13 @@ function deleteTriggers() {
     }
   });
 }
+
+function deletarPropriedades(){
+    const scriptProperties = PropertiesService.getScriptProperties();
+    const propriedadesASeremDeletadas = ["fileId", "fileSize", "chunkIndex", "location", "turma"]
+    propriedadesASeremDeletadas.forEach((propriedade) => {
+      scriptProperties.deleteProperty(propriedade)
+    });
+    
+}
+
